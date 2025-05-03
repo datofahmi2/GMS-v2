@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Laporan Tong Sampah</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+</head>
+<body>
+  <div class="container">
+    <h1>Laporan Tong Sampah</h1>
+
+    <div class="toolbar">
+      <input type="file" id="importExcel" accept=".xlsx" />
+      <button onclick="exportToExcel()">Export ke Excel</button>
+      <span id="statusMsg">Status: Sedia</span>
+    </div>
+
+    <table id="dataTable">
+      <thead>
+        <tr>
+          <th>No.</th>
+          <th>Tarikh/Masa</th>
+          <th>Ketinggian (cm)</th>
+          <th>Kategori</th>
+          <th>Status Asap</th>
+        </tr>
+      </thead>
+      <tbody id="tableBody">
+        <!-- Data dimasukkan oleh JavaScript -->
+      </tbody>
+    </table>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
