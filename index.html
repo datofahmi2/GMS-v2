@@ -1,37 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Laporan Tong Sampah</title>
-  <link rel="stylesheet" href="style.css">
-  <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laporan Tong Sampah</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="container">
-    <h1>Laporan Tong Sampah</h1>
+    <div class="container">
+        <h1>Laporan Tong Sampah</h1>
+        
+        <div class="toolbar">
+            <input type="date" id="dateFilter">
+            <button onclick="exportToExcel()">
+                <i class="fas fa-file-excel"></i> Export Excel
+            </button>
+            <button onclick="refreshData()">
+                <i class="fas fa-sync-alt"></i> Refresh
+            </button>
+            <div style="margin-left: auto; display: flex; align-items: center;">
+                <span id="connectionStatus" class="status-indicator offline"></span>
+                <span id="lastUpdate">Last update: -</span>
+            </div>
+        </div>
 
-    <div class="toolbar">
-      <input type="file" id="importExcel" accept=".xlsx" />
-      <button onclick="exportToExcel()">Export ke Excel</button>
-      <span id="statusMsg">Status: Sedia</span>
+        <table id="dataTable">
+            <thead>
+                <tr>
+                    <th>No.</th>
+                    <th>Date/Time</th>
+                    <th>Distance (cm)</th>
+                    <th>Category</th>
+                    <th>Smoke Status</th>
+                    <th>Garbage Status</th>
+                </tr>
+            </thead>
+            <tbody id="tableBody">
+                <!-- Data will be loaded here -->
+            </tbody>
+        </table>
     </div>
 
-    <table id="dataTable">
-      <thead>
-        <tr>
-          <th>No.</th>
-          <th>Tarikh/Masa</th>
-          <th>Ketinggian (cm)</th>
-          <th>Kategori</th>
-          <th>Status Asap</th>
-        </tr>
-      </thead>
-      <tbody id="tableBody">
-        <!-- Data dimasukkan oleh JavaScript -->
-      </tbody>
-    </table>
-  </div>
-
-  <script src="script.js"></script>
+    <!-- Font Awesome for icons -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <!-- Library for Excel export -->
+    <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+    <script src="app.js"></script>
 </body>
 </html>
